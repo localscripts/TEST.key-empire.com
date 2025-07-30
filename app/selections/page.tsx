@@ -78,13 +78,21 @@ export default function SelectionsPage() {
   ]
 
   return (
-    <div>
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: "url('/images/pattern-background.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "400px 400px",
+        backgroundPosition: "0 0",
+      }}
+    >
       {showLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <Navbar />
       <main className="px-4 py-8 mt-28 md:mt-20">
         <div className="w-[95%] max-w-7xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-8 md:mb-12 bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-200 shadow-lg">
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Product Selections</h1>
             <p className="text-base md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Choose from our premium collection of tools and scripts. Click on any image to explore.
@@ -103,7 +111,7 @@ export default function SelectionsPage() {
                   animation: `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`,
                 }}
               >
-                <div className="relative aspect-square rounded-xl md:rounded-2xl overflow-hidden shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                <div className="relative aspect-square rounded-xl md:rounded-2xl overflow-hidden shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 group-hover:scale-105 bg-white/90 backdrop-blur-sm border border-gray-200">
                   {/* Full-sized Image */}
                   <Image
                     src={selection.image || "/placeholder.svg"}

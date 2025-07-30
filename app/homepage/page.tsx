@@ -89,13 +89,21 @@ export default function Homepage() {
   ]
 
   return (
-    <div>
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: "url('/images/pattern-background.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "400px 400px",
+        backgroundPosition: "0 0",
+      }}
+    >
       {showLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <Navbar />
       <main className="px-4 py-8 mt-20">
         <div className="w-[95%] max-w-6xl mx-auto space-y-12">
           {/* Executors Section */}
-          <div className="bg-white rounded-2xl border border-black/30 shadow-lg overflow-hidden">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl border border-black/30 shadow-lg overflow-hidden">
             <div className="p-8">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Executors</h2>
@@ -110,7 +118,7 @@ export default function Homepage() {
                 {executors.map((executor, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-80 bg-gray-50 rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="flex-shrink-0 w-80 bg-gray-50/90 backdrop-blur-sm rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     {/* 1:1 Image */}
                     <div className="w-full aspect-square bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm">
@@ -159,7 +167,7 @@ export default function Homepage() {
           </div>
 
           {/* Scripts Section */}
-          <div className="bg-white rounded-2xl border border-black/30 shadow-lg overflow-hidden">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl border border-black/30 shadow-lg overflow-hidden">
             <div className="p-8">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Scripts</h2>
@@ -174,7 +182,7 @@ export default function Homepage() {
                 {scripts.map((script, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-80 bg-gray-50 rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="flex-shrink-0 w-80 bg-gray-50/90 backdrop-blur-sm rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     {/* 1:1 Image */}
                     <div className="w-full aspect-square bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm">

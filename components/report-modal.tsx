@@ -67,7 +67,7 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
         className="fixed inset-0 bg-black/60 z-[130] backdrop-blur-sm"
         style={{
           opacity: isClosing ? 0 : 1,
-          animation: isClosing ? "fadeOut 0.2s ease-out forwards" : "fadeIn 0.2s ease-out forwards",
+          animation: isClosing ? "backdropFadeOut 0.3s ease-out forwards" : "backdropPopIn 0.4s ease-out forwards",
         }}
         onClick={!showThankYou ? handleCloseModal : undefined}
       />
@@ -78,8 +78,12 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
         className="fixed left-1/2 top-1/2 w-[90%] max-w-lg bg-white rounded-2xl shadow-2xl z-[140] overflow-hidden select-none"
         style={{
           opacity: isClosing ? 0 : 1,
-          transform: isClosing ? "translate(-50%, calc(-50% - 10px)) scale(0.95)" : "translate(-50%, -50%) scale(1)",
-          animation: isClosing ? "fadeOutScale 0.2s ease-out forwards" : "fadeInScale 0.3s ease-out forwards",
+          transform: isClosing
+            ? "translate(-50%, calc(-50% + 20px)) scale(0.9) rotateX(10deg)"
+            : "translate(-50%, -50%) scale(1) rotateX(0deg)",
+          animation: isClosing
+            ? "modalPopOut 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards"
+            : "modalPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
         }}
       >
         {showThankYou ? (
@@ -88,7 +92,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
             className="p-8 text-center"
             style={{
               opacity: isClosing ? 0 : 0,
-              animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.2s forwards",
+              transform: "translateY(30px) scale(0.8)",
+              animation: isClosing
+                ? "contentFadeOut 0.2s ease-out forwards"
+                : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards`,
             }}
           >
             <div className="mb-4">
@@ -109,7 +116,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               className="flex items-center justify-between mb-6"
               style={{
                 opacity: isClosing ? 0 : 0,
-                animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.15s forwards",
+                transform: "translateY(30px) scale(0.8)",
+                animation: isClosing
+                  ? "contentFadeOut 0.2s ease-out forwards"
+                  : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards`,
               }}
             >
               <div className="flex items-center gap-3">
@@ -136,7 +146,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6"
               style={{
                 opacity: isClosing ? 0 : 0,
-                animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.25s forwards",
+                transform: "translateY(30px) scale(0.8)",
+                animation: isClosing
+                  ? "contentFadeOut 0.2s ease-out forwards"
+                  : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards`,
               }}
             >
               <div className="flex items-start gap-3">
@@ -158,7 +171,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               <div
                 style={{
                   opacity: isClosing ? 0 : 0,
-                  animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.35s forwards",
+                  transform: "translateY(30px) scale(0.8)",
+                  animation: isClosing
+                    ? "contentFadeOut 0.2s ease-out forwards"
+                    : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s forwards`,
                 }}
               >
                 <label htmlFor="title" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
@@ -179,7 +195,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
               <div
                 style={{
                   opacity: isClosing ? 0 : 0,
-                  animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.45s forwards",
+                  transform: "translateY(30px) scale(0.8)",
+                  animation: isClosing
+                    ? "contentFadeOut 0.2s ease-out forwards"
+                    : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards`,
                 }}
               >
                 <label htmlFor="description" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
@@ -205,7 +224,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                 className="pt-2"
                 style={{
                   opacity: isClosing ? 0 : 0,
-                  animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.55s forwards",
+                  transform: "translateY(30px) scale(0.8)",
+                  animation: isClosing
+                    ? "contentFadeOut 0.2s ease-out forwards"
+                    : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s forwards`,
                 }}
               >
                 <Button
@@ -227,7 +249,10 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
                 className="text-center pt-2"
                 style={{
                   opacity: isClosing ? 0 : 0,
-                  animation: isClosing ? "fadeOut 0.1s ease-out forwards" : "fadeIn 0.3s ease-out 0.65s forwards",
+                  transform: "translateY(30px) scale(0.8)",
+                  animation: isClosing
+                    ? "contentFadeOut 0.2s ease-out forwards"
+                    : `contentPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s forwards`,
                 }}
               >
                 <p className="text-xs text-gray-500">Our team will get your message </p>
@@ -237,43 +262,77 @@ export default function ReportModal({ isOpen, onClose }: ReportModalProps) {
         )}
 
         <style jsx>{`
-          @keyframes fadeIn {
-            from {
+          @keyframes modalPopIn {
+            0% {
               opacity: 0;
+              transform: translate(-50%, calc(-50% + 30px)) scale(0.8) rotateX(15deg);
             }
-            to {
+            60% {
               opacity: 1;
+              transform: translate(-50%, calc(-50% - 5px)) scale(1.02) rotateX(-2deg);
+            }
+            100% {
+              opacity: 1;
+              transform: translate(-50%, -50%) scale(1) rotateX(0deg);
             }
           }
-          
-          @keyframes fadeOut {
-            from {
+
+          @keyframes modalPopOut {
+            0% {
               opacity: 1;
+              transform: translate(-50%, -50%) scale(1) rotateX(0deg);
             }
-            to {
+            100% {
               opacity: 0;
+              transform: translate(-50%, calc(-50% + 20px)) scale(0.9) rotateX(10deg);
             }
           }
-          
-          @keyframes fadeInScale {
-            from {
+
+          @keyframes backdropPopIn {
+            0% {
               opacity: 0;
-              transform: translate(-50%, calc(-50% - 10px)) scale(0.95);
+              backdrop-filter: blur(0px);
             }
-            to {
+            100% {
               opacity: 1;
-              transform: translate(-50%, -50%) scale(1);
+              backdrop-filter: blur(8px);
             }
           }
-          
-          @keyframes fadeOutScale {
-            from {
+
+          @keyframes backdropFadeOut {
+            0% {
               opacity: 1;
-              transform: translate(-50%, -50%) scale(1);
+              backdrop-filter: blur(8px);
             }
-            to {
+            100% {
               opacity: 0;
-              transform: translate(-50%, calc(-50% - 10px)) scale(0.95);
+              backdrop-filter: blur(0px);
+            }
+          }
+
+          @keyframes contentPopIn {
+            0% {
+              opacity: 0;
+              transform: translateY(30px) scale(0.8);
+            }
+            60% {
+              opacity: 1;
+              transform: translateY(-5px) scale(1.05);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+
+          @keyframes contentFadeOut {
+            0% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+            100% {
+              opacity: 0;
+              transform: translateY(-10px) scale(0.95);
             }
           }
         `}</style>

@@ -17,7 +17,7 @@ export default function ContentModal({ isOpen, onClose }: ContentModalProps) {
       <div
         className="fixed inset-0 bg-black/60 z-60 backdrop-blur-sm"
         style={{
-          animation: "fadeIn 0.2s ease-out forwards",
+          animation: "backdropPopIn 0.4s ease-out forwards",
         }}
         onClick={onClose}
       />
@@ -27,7 +27,8 @@ export default function ContentModal({ isOpen, onClose }: ContentModalProps) {
         className="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-4xl bg-white rounded-2xl shadow-2xl z-70 overflow-hidden select-none"
         style={{
           opacity: 0,
-          animation: "fadeIn 0.3s ease-out forwards",
+          transform: "translate(-50%, -50%) scale(0.85) rotateY(10deg)",
+          animation: "modalMegaPopIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
         }}
       >
         <div className="flex flex-col md:flex-row min-h-[500px]">
@@ -121,12 +122,29 @@ export default function ContentModal({ isOpen, onClose }: ContentModalProps) {
         </div>
 
         <style jsx>{`
-          @keyframes fadeIn {
-            from {
+          @keyframes modalMegaPopIn {
+            0% {
               opacity: 0;
+              transform: translate(-50%, -50%) scale(0.85) rotateY(10deg);
             }
-            to {
+            50% {
+              opacity: 0.8;
+              transform: translate(-50%, -50%) scale(1.02) rotateY(-2deg);
+            }
+            100% {
               opacity: 1;
+              transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+            }
+          }
+
+          @keyframes backdropPopIn {
+            0% {
+              opacity: 0;
+              backdrop-filter: blur(0px);
+            }
+            100% {
+              opacity: 1;
+              backdrop-filter: blur(8px);
             }
           }
         `}</style>

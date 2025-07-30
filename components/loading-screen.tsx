@@ -31,15 +31,18 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
         }}
       >
         <div className="flex flex-col items-center">
-          <Image
-            src="/images/key-empire-logo.png"
-            alt="Key-Empire"
-            width={240}
-            height={60}
-            className="h-16 w-auto select-none"
-            priority
-            draggable={false}
-          />
+          <div className="relative overflow-hidden rounded-lg">
+            <Image
+              src="/images/key-empire-logo.png"
+              alt="Key-Empire"
+              width={240}
+              height={60}
+              className="h-16 w-auto select-none"
+              priority
+              draggable={false}
+            />
+            <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full animate-shine"></div>
+          </div>
         </div>
 
         <style jsx>{`
@@ -51,13 +54,16 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
               opacity: 0;
             }
           }
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
+          @keyframes shine {
+            0% {
+              transform: translateX(-100%) skewX(-12deg);
             }
-            to {
-              opacity: 1;
+            100% {
+              transform: translateX(200%) skewX(-12deg);
             }
+          }
+          .animate-shine {
+            animation: shine 2s ease-in-out infinite;
           }
         `}</style>
       </div>
@@ -67,20 +73,51 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
   return (
     <div className="fixed inset-0 bg-white z-[200] flex flex-col items-center justify-center select-none">
       <div className="flex flex-col items-center">
-        <Image
-          src="/images/key-empire-logo.png"
-          alt="Key-Empire"
-          width={240}
-          height={60}
-          className="h-16 w-auto select-none"
-          priority
-          draggable={false}
-          style={{
-            opacity: 0,
-            animation: "fadeIn 0.8s ease-out 0.3s forwards",
-          }}
-        />
+        <div className="relative overflow-hidden rounded-lg">
+          <Image
+            src="/images/key-empire-logo.png"
+            alt="Key-Empire"
+            width={240}
+            height={60}
+            className="h-16 w-auto select-none"
+            priority
+            draggable={false}
+            style={{
+              opacity: 0,
+              animation: "fadeIn 0.8s ease-out 0.3s forwards",
+            }}
+          />
+          <div
+            className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full animate-shine"
+            style={{
+              opacity: 0,
+              animation: "fadeIn 0.8s ease-out 0.3s forwards, shine 2s ease-in-out 1s infinite",
+            }}
+          ></div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @keyframes shine {
+          0% {
+            transform: translateX(-100%) skewX(-12deg);
+          }
+          100% {
+            transform: translateX(200%) skewX(-12deg);
+          }
+        }
+        .animate-shine {
+          animation: shine 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   )
 }
