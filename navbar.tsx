@@ -58,24 +58,26 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex md:items-center md:space-x-4 flex-shrink-0">
-              <Button
-                variant="outline"
-                size="sm"
-                className={`select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 hover:border-blue-300 ${
-                  isScrolled ? "bg-white/60 backdrop-blur-sm border-gray-300/60" : "bg-transparent border-gray-300"
-                }`}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                <Image
-                  src="/images/discord-icon.svg"
-                  alt="Discord"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 select-none relative z-10"
-                  draggable={false}
-                />
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </Button>
+              <Link href="/discord">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className={`select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 hover:border-blue-300 ${
+                    isScrolled ? "bg-white/60 backdrop-blur-sm border-gray-300/60" : "bg-transparent border-gray-300"
+                  }`}
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  <Image
+                    src="/images/discord-icon.svg"
+                    alt="Discord"
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 select-none relative z-10"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 size="sm"
@@ -88,14 +90,16 @@ export default function Navbar() {
                 <Flag className="h-4 w-4 select-none hover:text-red-600 relative z-10" />
                 <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Button>
-              <Button
-                size="sm"
-                className="select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold border-0"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <span className="relative z-10 select-none">Start Earning</span>
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </Button>
+              <Link href="/404">
+                <Button
+                  size="sm"
+                  className="select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold border-0"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="relative z-10 select-none">Start Earning</span>
+                  <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu */}
@@ -141,14 +145,16 @@ export default function Navbar() {
                     <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </button>
 
-                  <Button
-                    onClick={() => setIsOpen(false)}
-                    className="w-full select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold border-0 animate-popInDelay3"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span className="relative z-10 select-none">Start Earning</span>
-                    <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  </Button>
+                  <Link href="/404">
+                    <Button
+                      onClick={() => setIsOpen(false)}
+                      className="w-full select-none relative overflow-hidden group transform hover:scale-105 transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold border-0 animate-popInDelay3"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      <span className="relative z-10 select-none">Start Earning</span>
+                      <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    </Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>

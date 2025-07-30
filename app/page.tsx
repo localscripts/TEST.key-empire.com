@@ -6,7 +6,7 @@ import LoadingScreen from "../components/loading-screen"
 import Footer from "../components/footer"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star, Shield, Zap, Users } from "lucide-react"
+import { ArrowRight, Star, Shield, Zap, Users, ArrowDown } from "lucide-react"
 
 export default function HomePage() {
   const [showLoading, setShowLoading] = useState(true)
@@ -42,19 +42,19 @@ export default function HomePage() {
     {
       title: "Browse Executors",
       description: "Premium script execution tools",
-      href: "/homepage",
+      href: "/404",
       color: "from-blue-500 to-blue-600",
     },
     {
       title: "View Resellers",
       description: "Compare prices and plans",
-      href: "/resellers",
+      href: "/404",
       color: "from-green-500 to-green-600",
     },
     {
       title: "Product Selections",
       description: "Explore our full catalog",
-      href: "/selections",
+      href: "/404",
       color: "from-purple-500 to-purple-600",
     },
   ]
@@ -67,7 +67,7 @@ export default function HomePage() {
       <main className="px-4 py-8 mt-32">
         <div className="w-[95%] max-w-7xl mx-auto">
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center py-8 mb-64 mt-[150px] md:mt-30">
             <div
               className="flex justify-center mb-8"
               style={{
@@ -76,7 +76,7 @@ export default function HomePage() {
                 animation: "popUpBounce 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards",
               }}
             >
-              <div className="relative rounded-lg">
+              <div className="relative rounded-lg group">
                 <Image
                   src="/images/key-empire-logo.png"
                   alt="Key-Empire"
@@ -86,7 +86,7 @@ export default function HomePage() {
                   priority
                   draggable={false}
                 />
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full hover:translate-x-full transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ export default function HomePage() {
 
             {/* Action Buttons */}
             <div
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+              className="flex justify-center"
               style={{
                 opacity: 0,
                 transform: "translateY(20px) scale(0.9)",
@@ -113,8 +113,11 @@ export default function HomePage() {
               }}
             >
               <Link
-                href="/homepage"
-                className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                href="/404"
+                className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                style={{
+                  animation: "buttonPulse 2s infinite",
+                }}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Started
@@ -122,12 +125,26 @@ export default function HomePage() {
                 </span>
                 <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Link>
-              <Link
-                href="/resellers"
-                className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 transform hover:scale-105"
-              >
-                View Pricing
-              </Link>
+            </div>
+
+            {/* Scroll Down Indicator */}
+            <div
+              className="flex flex-col items-center mt-20"
+              style={{
+                opacity: 0,
+                transform: "translateY(20px)",
+                animation: "popUpSlide 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards",
+              }}
+            >
+              <div className="text-sm text-gray-500 mb-2 font-medium">Scroll to explore</div>
+              <div className="h-10 border-2 border-gray-300 rounded-xl flex justify-center relative group cursor-pointer hover:border-[#46DB7C] transition-colors duration-300 w-10">
+                <ArrowDown
+                  className="w-4 h-4 text-gray-400 mt-2 group-hover:text-[#46DB7C] transition-colors duration-300"
+                  style={{
+                    animation: "scrollBounce 2s ease-in-out infinite",
+                  }}
+                />
+              </div>
             </div>
           </div>
 
@@ -196,21 +213,19 @@ export default function HomePage() {
               {/* Main Content */}
               <div className="text-center max-w-2xl">
                 <div
-                  className="w-24 h-24 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl"
+                  className="w-24 h-24 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl overflow-hidden"
                   style={{
                     opacity: 0,
                     transform: "scale(0) rotateY(180deg)",
                     animation: "popUpFlip 1.0s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.0s forwards",
                   }}
                 >
-                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KittyPaw08-BaMmpBpElqXgIJ8IGftLUYlx5QTrqA.gif"
+                    alt="Money"
+                    className="w-16 h-16 object-contain"
+                    draggable={false}
+                  />
                 </div>
 
                 <h2
@@ -244,13 +259,19 @@ export default function HomePage() {
                     animation: "popUpScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.5s forwards",
                   }}
                 >
-                  <button className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+                  <Link
+                    href="/404"
+                    className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  >
                     <span className="relative z-10">Start Now</span>
                     <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  </button>
-                  <button className="px-8 py-4 border-2 border-green-500 text-green-600 font-bold text-lg rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105">
+                  </Link>
+                  <Link
+                    href="/404"
+                    className="px-8 py-4 border-2 border-green-500 text-green-600 font-bold text-lg rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105"
+                  >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Additional Info */}
@@ -477,6 +498,48 @@ export default function HomePage() {
           }
           90% {
             transform: translate3d(0,-2px,0);
+          }
+        }
+
+        @keyframes scrollBounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(8px);
+          }
+          60% {
+            transform: translateY(4px);
+          }
+        }
+
+        @keyframes arrowBounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          40% {
+            transform: translateY(6px);
+            opacity: 0.7;
+          }
+          60% {
+            transform: translateY(3px);
+            opacity: 0.9;
+          }
+        }
+
+        @keyframes buttonPulse {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(70, 219, 124, 0.7); /* Using the green color */
+          }
+          70% {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 10px rgba(70, 219, 124, 0);
+          }
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(70, 219, 124, 0);
           }
         }
       `}</style>
